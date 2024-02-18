@@ -1,0 +1,36 @@
+/vendor/
+
+# PHPStorm project files
+.idea/
+
+# VSCode project files
+.vscode/
+
+# NetBeans project files
+nbproject/
+
+# Sublime Text project files
+*.sublime-workspace
+*.sublime-project
+
+# User-specific files
+*.suo
+*.user
+*.user.md
+*.sln.docstates
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment-specific files
+/.env
+/.env.local
+/.env.*.local
+
+# PHPUnit
+/phpunit.xml
+/phpunit.xml.dist
+
+# PHP log files
+*.log
