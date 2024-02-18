@@ -13,7 +13,7 @@ class SpotifyAuthController
           $settings = Settings::getInstance();
           
           $clientID = $settings->get('SPOTIFY_CLIENTID');
-          $redirectUri = $settings->get('SPOTIFY_CALLBACK');;
+          $redirectUri = $settings->get('SPOTIFY_REDIRECT');
           $scope = 'user-read-private';
 
           $queryParams = http_build_query([
