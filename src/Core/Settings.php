@@ -13,11 +13,11 @@ class Settings extends Singleton
     public function __construct(?string $path = null)
     {
         if ($path == null) {
-            $path = __DIR__ . '../../config.env';
+            $path = __DIR__ . '/../..';
         }
 
         if (file_exists($path)) {
-            $this->dotenv = Dotenv::createImmutable($path);
+            $this->dotenv = Dotenv::createImmutable($path, ['config.env']);
             $this->dotenv->load();
         } else {
             throw new Exception("Could not find .env file at path: {$path}");

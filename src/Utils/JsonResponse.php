@@ -2,6 +2,7 @@
 
 namespace App\Utils;
 
+use App\Models\Base\BaseModel;
 use Psr\Http\Message\ResponseInterface;
 
 class JsonResponse
@@ -10,12 +11,12 @@ class JsonResponse
      * Transform data into json.
      *
      * @param ResponseInterface $response
-     * @param mixed $data
+     * @param BaseModel $data
      * @return ResponseInterface
      */
-    public static function transform(ResponseInterface $response, mixed $data): ResponseInterface
+    public static function transform(ResponseInterface $response, BaseModel $data): ResponseInterface
     {
-        $response->getBody()->write(json_encode($data));
+        $response->getBody()->write(json_encode($data->jsonSerialize()));
         return $response;
     }
 }

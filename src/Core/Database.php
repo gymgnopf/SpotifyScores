@@ -4,10 +4,10 @@ namespace App\Core;
 
 use App\Utils\Singleton;
 use Doctrine\DBAL\DriverManager;
-use Doctrine\ORM\EntityManager as ORMEntityManager;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMSetup;
 
-class EntityManager extends Singleton
+class Database extends Singleton
 {
     private $entityManger;
 
@@ -32,15 +32,15 @@ class EntityManager extends Singleton
 
         $connection = DriverManager::getConnection($conn, $config);
 
-        $this->entityManger = new ORMEntityManager($connection, $config);
+        $this->entityManger = new EntityManager($connection, $config);
     }
 
     /**
      * Return doctrine entity manager
      *
-     * @return ORMEntityManager
+     * @return EntityManager
      */
-    public function getConnection(): ORMEntityManager
+    public function getEM(): EntityManager
     {
         return $this->entityManger;
     }
