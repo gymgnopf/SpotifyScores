@@ -15,9 +15,9 @@ class HomeController
    {
    }
 
-   public function home(ServerRequestInterface $request, ResponseInterface $response, array $args, ?int $id): ResponseInterface
+   public function getHome(ServerRequestInterface $request, ResponseInterface $response, array $args, ?int $id): ResponseInterface
    {
-        return JsonResponse::getResponse($response, ['hello world' => 'Hallo Welt']);
+        return JsonResponse::transform($response, ['hello world' => 'Hallo Welt']);
    }
 
    public function contact(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface

@@ -13,7 +13,7 @@ class JsonResponse
      * @param mixed $data
      * @return ResponseInterface
      */
-    public static function getResponse(ResponseInterface $response, mixed $data): ResponseInterface
+    public static function transform(ResponseInterface $response, mixed $data): ResponseInterface
     {
         $response->getBody()->write(json_encode($data));
         return $response;
