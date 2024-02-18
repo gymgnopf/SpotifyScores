@@ -13,6 +13,11 @@ $app->get('/', function (Request $request, Response $response, array $args) {
     return $response;
 });
 
+$app->get('/callback', function (Request $request, Response $response, array $args) {
+    $response->getBody()->write("Shopify Scores API V1");
+    return $response;
+});
+
 $app->any('/json/{controller}/{action}[/{id}]', function (Request $request, Response $response, array $args) {
     $controller = $args['controller'];
     $action = strtolower($request->getMethod()) . ucfirst($args['action']);
