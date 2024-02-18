@@ -24,9 +24,7 @@ nbproject/
 Thumbs.db
 
 # Environment-specific files
-/.env
-/.env.local
-/.env.*.local
+*.env
 
 # PHPUnit
 /phpunit.xml
