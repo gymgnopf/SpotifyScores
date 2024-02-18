@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Core\Settings;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -8,7 +9,10 @@ class SpotifyAuthController
 {
      public function getConnect(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
      {
-          $clientID = '3ebb8beaac0b474ea0f2553cdfa0bd6c';
+          /** @var Settings */
+          $settings = Settings::getInstance();
+          
+          $clientID = $settings->get('SPOTIFY_CLIENTID');
           $redirectUri = 'http:/localhost:8080/callback';
           $scope = 'user-read-private';
 
@@ -20,9 +24,6 @@ class SpotifyAuthController
            ]);
           
           $authUrl = "https://accounts.spotify.com/authorize?" . $queryParams;
-           print_r($authUrl);
-           die();
-
           return $response->withHeader('Location', $authUrl)->withStatus(302);
      }
      public function getHandle(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
